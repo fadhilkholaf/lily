@@ -89,6 +89,7 @@ const MenuModal = ({
               <li key={index} onPointerOver={() => setPreview(index)}>
                 <Link
                   href={menu.href}
+                  target="_blank"
                   className={cn(
                     "block w-full relative",
                     "before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-pink-500 hover:before:scale-x-100 before:transition-all before:duration-[250ms] hover:before:duration-500 before:ease-[cubic-bezier(0.22, 1, 0.36, 1)]",
