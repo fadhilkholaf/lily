@@ -38,9 +38,9 @@ const CursorGallery = () => {
       clientY = touch.pageY;
     }
 
-    if (steps >= currentIndex * 150) {
+    if (steps >= currentIndex * 500) {
       moveImage(clientX, clientY);
-      if (nbOfImages == refs.current.length - 1) {
+      if (nbOfImages == refs.current.length) {
         removeImage();
       }
     }
@@ -48,7 +48,7 @@ const CursorGallery = () => {
     if (currentIndex == refs.current.length) {
       currentIndex = 0;
 
-      steps = -150;
+      steps = -500;
     }
   };
 
@@ -62,6 +62,7 @@ const CursorGallery = () => {
       currentImage.style.transform = `translate(-50%, -50%) rotate(${
         (Math.random() * 2 - 1) * 20
       }deg)`;
+      currentImage.style.opacity = "1";
       currentImage.style.left = x + "px";
       currentImage.style.top = y + "px";
 
@@ -99,6 +100,7 @@ const CursorGallery = () => {
         "cubic-bezier(0.83, 0, 0.17, 1)";
       images[0].style.transitionDuration = "1000ms";
       images[0].style.transform = "translate(-50%, 100vh) rotate(0deg)";
+      images[0].style.opacity = "0";
     }
 
     nbOfImages--;
@@ -141,7 +143,7 @@ const CursorGallery = () => {
           width={500}
           height={500}
           loading="lazy"
-          className="w-[20vw] absolute -translate-x-1/2 transition-transform top-[200vh] left-1/2 rounded-lg"
+          className="w-[20vw] absolute opacity-0 -translate-x-1/2 transition-[transform, z-index, opacity] translate-y-[100vh] left-1/2 rounded-lg"
         />
       ))}
     </section>
