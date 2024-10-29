@@ -15,11 +15,15 @@ const CursorGallery = () => {
 
   const lastPosition = useRef({ x: 0, y: 0 });
 
-  const handleMovement = (e: PointerEvent | TouchEvent) => {
+  const handleMovement = (e: PointerEvent | TouchEvent | MouseEvent) => {
     let clientX: number = 0;
     let clientY: number = 0;
 
-    if (e instanceof PointerEvent) {
+    if (e instanceof PointerEvent || e instanceof MouseEvent) {
+      if (e.type === "click") {
+        steps += 500;
+      }
+
       steps += Math.abs(e.movementX) + Math.abs(e.movementY);
 
       clientX = e.pageX;
@@ -121,11 +125,13 @@ const CursorGallery = () => {
     window.addEventListener("pointermove", handleMovement);
     window.addEventListener("touchstart", handleMovement);
     window.addEventListener("touchmove", handleMovement);
+    window.addEventListener("click", handleMovement);
 
     return () => {
       window.removeEventListener("pointermove", handleMovement);
       window.removeEventListener("touchstart", handleMovement);
       window.removeEventListener("touchmove", handleMovement);
+      window.removeEventListener("click", handleMovement);
     };
   });
 
