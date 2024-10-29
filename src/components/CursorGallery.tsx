@@ -130,22 +130,21 @@ const CursorGallery = () => {
   });
 
   return (
-    <section
-      id="cursorGalleryContainer"
-      className="h-screen absolute w-full overflow-hidden top-0 left-0 -z-10"
-    >
-      {refs.current.map((ref, index) => (
-        <Image
-          key={index}
-          ref={ref}
-          src={`/images/lily/${index}.jpg`}
-          alt={`Image ${index}`}
-          width={500}
-          height={500}
-          loading="lazy"
-          className="w-[20vw] absolute opacity-0 -translate-x-1/2 transition-[transform, z-index, opacity] translate-y-[100vh] left-1/2 rounded-lg"
-        />
-      ))}
+    <section className="h-screen fixed w-full top-0 left-0 -z-10">
+      <article className="h-full w-full relative overflow-hidden">
+        {refs.current.map((ref, index) => (
+          <Image
+            key={index}
+            ref={ref}
+            src={`/images/lily/${index}.jpg`}
+            alt={`Image ${index}`}
+            width={500}
+            height={500}
+            loading="lazy"
+            className="w-[20vw] absolute opacity-0 -translate-x-1/2 transition-[transform, z-index, opacity] translate-y-[100vh] left-1/2 rounded-lg"
+          />
+        ))}
+      </article>
     </section>
   );
 };
