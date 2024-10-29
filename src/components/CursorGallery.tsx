@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const CursorGallery = () => {
   const refs = useRef<RefObject<HTMLImageElement>[]>(
-    Array.from({ length: 29 }, () => createRef())
+    Array.from({ length: 29 }, () => createRef()),
   );
   let currentIndex: number = 0;
   let steps: number = 0;
@@ -130,8 +130,8 @@ const CursorGallery = () => {
   });
 
   return (
-    <section className="h-screen fixed w-full top-0 left-0 -z-10">
-      <article className="h-full w-full relative overflow-hidden">
+    <section className="fixed left-0 top-0 -z-10 h-screen w-full">
+      <article className="relative h-full w-full overflow-hidden">
         {refs.current.map((ref, index) => (
           <Image
             key={index}
@@ -141,7 +141,7 @@ const CursorGallery = () => {
             width={500}
             height={500}
             loading="lazy"
-            className="w-[20vw] absolute opacity-0 -translate-x-1/2 transition-[transform, z-index, opacity] translate-y-[100vh] left-1/2 rounded-lg"
+            className="transition-[transform, z-index, opacity] absolute left-1/2 w-[20vw] -translate-x-1/2 translate-y-[100vh] rounded-lg opacity-0"
           />
         ))}
       </article>

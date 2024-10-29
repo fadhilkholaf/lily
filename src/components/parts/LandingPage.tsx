@@ -25,8 +25,8 @@ const LandingPage = () => {
 
   return (
     <>
-      <section className="h-screen flex flex-col justify-between p-4 xs:p-8">
-        <article className="w-full h-1/3 flex justify-start items-start flex-col gap-4">
+      <section className="flex h-screen flex-col justify-between p-4 xs:p-8">
+        <article className="flex h-1/3 w-full flex-col items-start justify-start gap-4">
           <Image
             src="/images/landing-page/hillary.svg"
             alt="HILLARY"
@@ -44,8 +44,8 @@ const LandingPage = () => {
             className="w-[100px]"
           />
         </article>
-        <article className="w-full h-1/3 flex flex-col text-white font-bold tracking-widest text-2xl">
-          <div className="h-full flex justify-start items-start">
+        <article className="flex h-1/3 w-full flex-col text-2xl font-bold tracking-widest text-white">
+          <div className="flex h-full items-start justify-start">
             <Link
               href="https://jkt48.com"
               target="_blank"
@@ -54,14 +54,14 @@ const LandingPage = () => {
               JKT48
             </Link>
           </div>
-          <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col items-center gap-4">
             <Image
               src="/images/landing-page/lily.svg"
               alt="LILY"
               width={500}
               height={500}
               loading="lazy"
-              className="xs:w-fit w-[100px]"
+              className="w-[100px] xs:w-fit"
             />
             <Image
               src="/images/landing-page/lily-hiragana.svg"
@@ -72,7 +72,7 @@ const LandingPage = () => {
               className="w-[100px]"
             />
           </div>
-          <div className="h-full flex justify-end items-end">
+          <div className="flex h-full items-end justify-end">
             <button
               type="button"
               onClick={() => handleOpenModal()}
@@ -82,7 +82,7 @@ const LandingPage = () => {
             </button>
           </div>
         </article>
-        <article className="w-full h-1/3 flex justify-start items-end flex-col-reverse gap-4">
+        <article className="flex h-1/3 w-full flex-col-reverse items-end justify-start gap-4">
           <Image
             src="/images/landing-page/abigail.svg"
             alt="ABIGAIL"
