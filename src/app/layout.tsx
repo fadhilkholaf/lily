@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 
 import CursorGallery from "@/components/CursorGallery";
 
@@ -10,16 +10,7 @@ export const metadata: Metadata = {
   description: "Hillary Abigail",
 };
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -28,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="select-none bg-landing-page bg-cover bg-center">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <CursorGallery />
         {children}
       </body>
